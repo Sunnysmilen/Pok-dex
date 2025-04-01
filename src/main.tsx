@@ -7,6 +7,6 @@ import PokemonCard from "./components/PokemonCard.tsx";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <App />
-    <PokemonCard />
+    <PokemonCard pokemon={name} />
   </StrictMode>
 );
