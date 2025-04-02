@@ -12,11 +12,18 @@ const pokemonList = [
     imgSrc: "",
   },
 ];
+
 function App() {
   return (
-    <div>
-      <PokemonCard pokemon={pokemonList[0]} />
-    </div>
+    <>
+      <PokemonCard
+        name={"bulbasaur"}
+        imgSrc={
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
+        }
+      />
+      <PokemonCard name={"Mew"} imgSrc="" />
+    </>
   );
 }
 
