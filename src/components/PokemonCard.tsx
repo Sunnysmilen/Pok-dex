@@ -1,12 +1,15 @@
-export default PokemonCard;
+type PokemonC = {
+  name: string;
+  imgSrc?: string;
+};
 
-function PokemonCard({ pokemon }) {
-  // type pokemon = { name: string; imgSrc: string };
-
+function PokemonCard(props: PokemonC) {
   return (
-    <div>
-      {pokemon.name}
-      {pokemon.imgSrc === "" ? <p>???</p> : <img src={pokemon.imgSrc} />}
-    </div>
+    <section>
+      {props.imgSrc === "" ? <p>???</p> : <img src={props.imgSrc} />}
+      {props.name}
+    </section>
   );
 }
+
+export default PokemonCard;
