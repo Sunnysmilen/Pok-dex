@@ -16,6 +16,10 @@ const pokemonList = [
 
 function App() {
   const [pokemonName, setPokemonName] = useState({ name: "bulbasaur" });
+  const [pokemonImgScr, setPokemonImgScr] = useState({
+    imgSrc:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  });
 
   const pokemon = pokemonList.find((pokemon) => pokemon.name === pokemonName);
 
@@ -25,7 +29,9 @@ function App() {
 
   return (
     <div>
-      <p>{pokemonName.name}</p>
+      <p>
+        {pokemonName.name} {pokemonImgScr.imgSrc}
+      </p>
       <button
         type="button"
         onClick={() =>
@@ -36,6 +42,7 @@ function App() {
       >
         Bulbasaur
       </button>
+
       <button type="button" onClick={() => setPokemonName({ name: "Mew" })}>
         Mew
       </button>
