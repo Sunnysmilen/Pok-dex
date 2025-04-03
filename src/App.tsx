@@ -4,9 +4,24 @@ import { useState } from "react";
 
 const pokemonList = [
   {
-    name: "bulbasaur",
+    name: "Bulbasaur",
     imgSrc:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    name: "Charmander",
+    imgSrc:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+  },
+  {
+    name: "Squirtle",
+    imgSrc:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+  },
+  {
+    name: "Pikachu",
+    imgSrc:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
   },
   {
     name: "Mew",
@@ -15,38 +30,34 @@ const pokemonList = [
 ];
 
 function App() {
-  const [pokemonName, setPokemonName] = useState({ name: "bulbasaur" });
-  const [pokemonImgScr, setPokemonImgScr] = useState({
-    imgSrc:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  });
-
+  const [pokemonName, setPokemonName] = useState("Bulbasaur");
   const pokemon = pokemonList.find((pokemon) => pokemon.name === pokemonName);
 
-  if (pokemon === null) {
+  if (pokemon == null) {
     throw new Error("Invalid pokemon name");
   }
 
   return (
-    <div>
-      <p>
-        {pokemonName.name} {pokemonImgScr.imgSrc}
-      </p>
-      <button
-        type="button"
-        onClick={() =>
-          setPokemonName({
-            name: "Bulbasaur",
-          })
-        }
-      >
-        Bulbasaur
-      </button>
-
-      <button type="button" onClick={() => setPokemonName({ name: "Mew" })}>
-        Mew
-      </button>
-    </div>
+    <>
+      <div>
+        <h1>PokeDex</h1>
+        <nav>
+          <ul className="PokeList">
+            {pokemonList.map((pokemon) => (
+              <li key={pokemon.name} className="PokeCard">
+                <button
+                  type="button"
+                  onClick={() => setPokemonName(pokemon.name)}
+                >
+                  {pokemon.name}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <PokemonCard pokemon={pokemon} />
+      </div>
+    </>
   );
 }
 

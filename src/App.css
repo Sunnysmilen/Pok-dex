@@ -40,3 +40,17 @@
 .read-the-docs {
   color: #888;
 }
+
+.PokeList {
+  display: flex;
+  flex-direction: row;
+}
+.PokeCard {
+  list-style: none;
+}
+
+.CardDisplay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

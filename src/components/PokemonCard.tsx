@@ -1,13 +1,15 @@
-type PokemonC = {
-  name: string;
-  imgSrc?: string;
+type pokemonC = {
+  pokemon: {
+    name: string;
+    imgSrc?: string;
+  };
 };
 
-function PokemonCard(props: PokemonC) {
+function PokemonCard({ pokemon }: pokemonC) {
   return (
-    <section>
-      {props.imgSrc === "" ? <p>???</p> : <img src={props.imgSrc} />}
-      {props.name}
+    <section className="CardDisplay">
+      {pokemon.imgSrc === "" ? <p>???</p> : <img src={pokemon.imgSrc} />}
+      {pokemon.name}
     </section>
   );
 }
