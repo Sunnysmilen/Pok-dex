@@ -1,4 +1,5 @@
 import "../App";
+
 type Pokemon = {
   pickachu: string;
   name: string;
