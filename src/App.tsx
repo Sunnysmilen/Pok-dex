@@ -1,11 +1,29 @@
 import "./App.css";
+import NavBar from "./components/NavBar";
 import PokemonCard from "./components/PokemonCard";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const pokemonList = [
   {
-    name: "bulbasaur",
+    name: "Bulbasaur",
     imgSrc:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    name: "Charmander",
+    imgSrc:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+  },
+  {
+    name: "Squirtle",
+    imgSrc:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+  },
+  {
+    name: "Pikachu",
+    imgSrc:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
   },
   {
     name: "Mew",
@@ -14,16 +32,24 @@ const pokemonList = [
 ];
 
 function App() {
+  useEffect(() => {
+    alert("Hello pokemon trainer");
+  });
+
+  const [pokemonName, setPokemonName] = useState("Bulbasaur");
+  const pokemon = pokemonList.find((pokemon) => pokemon.name === pokemonName);
+
+  if (pokemon == null) {
+    throw new Error("Invalid pokemon name");
+  }
+
   return (
-    <>
-      <PokemonCard
-        name={"bulbasaur"}
-        imgSrc={
-          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
-        }
-      />
-      <PokemonCard name={"Mew"} imgSrc="" />
-    </>
+    <div>
+      <h1>PokeDex</h1>
+
+      <NavBar setPokemonName={setPokemonName} pokemonList={pokemonList} />
+      <PokemonCard pokemon={pokemon} />
+    </div>
   );
 }
 
