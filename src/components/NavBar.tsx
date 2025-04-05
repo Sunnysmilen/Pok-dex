@@ -1,9 +1,11 @@
+import { useState } from "react";
 import "../App";
 
 type Pokemon = {
   pickachu: string;
   name: string;
   imgSrc?: string;
+  type: string;
 };
 
 type NavBarProps = {

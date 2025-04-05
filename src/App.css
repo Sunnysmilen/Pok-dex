@@ -5,6 +5,9 @@
   text-align: center;
 }
 
+body {
+  background-color: grey;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -46,9 +49,6 @@
 .PokeList {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
 }
 
 /* Button de choix Pokemon */
@@ -59,21 +59,20 @@
   border-radius: 10%;
 }
 /* Card  */
-.CardDisplay {
-  width: 200px;
+figure.CardDisplay {
+  width: 300px;
   padding: 1rem;
   background-color: lightgreen;
   border-radius: 5px;
-  box-shadow: 0px 0px 5px gray;
+  box-shadow: 5px 5px 10px rgb(56, 54, 54);
   color: white;
   font-size: 1.6rem;
-  text-align: center;
   text-shadow: 0px 0px 5px gray;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
-/* Pokemon Name */
-.PokemonName {
-}
 /* Pokemon Image */
 img.PokemonImage {
   width: 100%;
@@ -84,4 +83,13 @@ img.PokemonImage {
   box-shadow: inherit;
 }
 
-/* Button de choix Pokemon */
+div {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  text-align: center;
+}
